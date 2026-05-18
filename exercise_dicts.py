@@ -1,6 +1,4 @@
 # Ejercicios de diccionarios: sistema de inventario
-from pkgutil import iter_importers
-
 
 def create_inventory(items):
     """
