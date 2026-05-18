@@ -17,7 +17,7 @@ def create_inventory(items):
     inventario = {}
     for item in items:
         if item in inventario:
-            inventario[item] =+ 1
+            inventario[item] += 1
         else:
             inventario[item] = 1
     return inventario
@@ -35,12 +35,11 @@ def add_items(inventario, items):
     Returns:
         El inventario actualizado
     """
-    inventario = {}
     for item in items:
-        if items in inventario:
+        if item in inventario:
             inventario[item] += 1
         else:
-            inventario = 1
+            inventario[item] = 1
     return inventario
 
 def decrement_items(inventario, items):
@@ -57,10 +56,10 @@ def decrement_items(inventario, items):
     Returns:
         El inventario actualizado (sin valores negativos)
     """
-    inventario = {}
-    if items in inventario:
-        if inventario[items] > 0:
-            inventario -= 1
+    for item in items:
+        if item in inventario:
+            if inventario[item] > 0:
+                inventario[item] -= 1
     return inventario
 
 def remove_item(inventario, item):
@@ -75,8 +74,8 @@ def remove_item(inventario, item):
     Returns:
         El inventario actualizado (o sin cambios si el item no existe)
     """
-    for item in inventario:
-       del inventario[item]
+    if item in inventario:
+        del inventario[item]
     return inventario
 
 def list_inventory(inventario):
@@ -111,15 +110,15 @@ def find_max_value(diccionario):
     Ejemplo:
         find_max_value({'John': 85, 'Emma': 92, 'Sophia': 78}) -> 'Emma'
     """
+
+
     if len(diccionario) == 0:
         return ""
 
     max_clave = ""
-    max_valor = 0
 
     for clave, valor in diccionario.items():
-        if valor > max_valor:
-            max_valor = valor
+        if max_clave == "" or valor > diccionario[max_clave]:
             max_clave = clave
 
     return max_clave
