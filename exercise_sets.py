@@ -38,8 +38,8 @@ def check_drinks(nombre_bebida, ingredientes):
     """
     for ingrediente in ingredientes:
         if ingrediente in ALCOHOLS:
-            return nombre_bebida + "Cocktail"
-    return  nombre_bebida + "Mocktail"
+            return nombre_bebida + " Cocktail"
+    return  nombre_bebida + " Mocktail"
 
 def unique_chars(texto):
     """
@@ -98,9 +98,11 @@ def common_elements(set_a, set_b):
         common_elements({1, 2, 3}, {2, 3, 4}) -> {2, 3}
         common_elements({1, 2}, {3, 4}) -> set()
     """
+   
     nuevo = set()
-    for numero in set_a:
-        if numero in set_a:
-            nuevo.add(numero)
-    return nuevo
 
+    for numero in set_a:
+        if numero in set_b:
+            nuevo.add(numero)
+
+    return nuevo
